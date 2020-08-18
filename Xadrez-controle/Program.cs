@@ -7,15 +7,23 @@ namespace Xadrez_controle {
         static void Main(string[] args) {
             try
             {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+                PartidaDeXadrez partidaXadrez = new PartidaDeXadrez();
 
-                tab.colocarPeca(new Torre(Cor.Preta, tab), new Posicao(0, 0));
-                tab.colocarPeca(new Torre(Cor.Preta, tab), new Posicao(1, 3));
-                tab.colocarPeca(new Rei(Cor.Preta, tab), new Posicao(0, 2));
+                while (!partidaXadrez.Terminada)
+                {
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partidaXadrez.Tab);
+                    
+                    Console.WriteLine( );
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.lerPosicao().toPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.lerPosicao().toPosicao();
 
-                tab.colocarPeca(new Torre(Cor.Branca, tab), new Posicao(3, 5));
-
-                Tela.imprimirTabuleiro(tab);
+                    partidaXadrez.executaMovimento(origem, destino);
+                }
+                
+                
             }
             catch (TabuleiroException e)
             {

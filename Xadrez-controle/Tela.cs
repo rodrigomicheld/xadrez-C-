@@ -1,7 +1,9 @@
 ﻿
 
 using System;
+using System.Security.Cryptography.X509Certificates;
 using tabuleiro;
+using xadrez;
 
 namespace Xadrez_controle {
     class Tela {
@@ -27,7 +29,12 @@ namespace Xadrez_controle {
             }
             Console.Write("  a b c d e f g h");
 
-
+        }
+        public static PosicaoXadrez lerPosicao() {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+            return new PosicaoXadrez(coluna, linha);
         }
         public static void imprimirPeca(Peca peca) {
             if (peca.Cor == Cor.Branca)
