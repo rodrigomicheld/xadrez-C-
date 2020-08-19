@@ -13,10 +13,15 @@ namespace Xadrez_controle {
                 {
                     Console.Clear();
                     Tela.imprimirTabuleiro(partidaXadrez.Tab);
-                    
-                    Console.WriteLine( );
+                    Console.WriteLine();
                     Console.Write("Origem: ");
                     Posicao origem = Tela.lerPosicao().toPosicao();
+
+                    bool[,] possicoesPossiveis = partidaXadrez.Tab.peca(origem).movimentosPossiveis();
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partidaXadrez.Tab,possicoesPossiveis);
+
+                    Console.WriteLine();
                     Console.Write("Destino: ");
                     Posicao destino = Tela.lerPosicao().toPosicao();
 
