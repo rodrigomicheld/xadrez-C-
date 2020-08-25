@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using tabuleiro;
 using xadrez;
 
@@ -12,8 +11,16 @@ namespace Xadrez_controle {
             imprimirTabuleiro(partida.Tab);
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Turno: " + partida.Turno);
             Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            
+            if(partida.Xeque == true) {
+                Console.WriteLine("Você está em Xeque!");
+            }
+            Console.ForegroundColor = aux;
 
         }
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida) {
