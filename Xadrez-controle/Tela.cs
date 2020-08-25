@@ -13,15 +13,20 @@ namespace Xadrez_controle {
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.Turno);
-            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
-            ConsoleColor aux = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            
-            if(partida.Xeque == true) {
-                Console.WriteLine("Você está em Xeque!");
-            }
-            Console.ForegroundColor = aux;
+            if(!partida.Terminada) {
+                Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+                ConsoleColor aux = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Yellow;
 
+                if(partida.Xeque == true) {
+                    Console.WriteLine("Você está em Xeque!");
+                }
+                Console.ForegroundColor = aux;
+            }
+            else {
+                Console.WriteLine("XEQUEMATE!!");
+                Console.WriteLine("Vencedor: "+partida.JogadorAtual);
+            }
         }
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida) {
             Console.WriteLine();

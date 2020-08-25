@@ -74,18 +74,11 @@ namespace xadrez {
 
         private void colocarPeca() {
             colocarNovaPeca('c',1,new Torre(Cor.Branca,Tab));
-            colocarNovaPeca('c',2,new Torre(Cor.Branca,Tab));
-            colocarNovaPeca('d',2,new Torre(Cor.Branca,Tab));
-            colocarNovaPeca('e',2,new Torre(Cor.Branca,Tab));
-            colocarNovaPeca('e',1,new Torre(Cor.Branca,Tab));
             colocarNovaPeca('d',1,new Rei(Cor.Branca,Tab));
+            colocarNovaPeca('h',7,new Torre(Cor.Branca,Tab));
 
-            colocarNovaPeca('c',7,new Torre(Cor.Preta,Tab));
-            colocarNovaPeca('c',8,new Torre(Cor.Preta,Tab));
-            colocarNovaPeca('d',7,new Torre(Cor.Preta,Tab));
-            colocarNovaPeca('e',7,new Torre(Cor.Preta,Tab));
-            colocarNovaPeca('e',8,new Torre(Cor.Preta,Tab));
-            colocarNovaPeca('d',8,new Rei(Cor.Preta,Tab));
+            colocarNovaPeca('b',8,new Torre(Cor.Preta,Tab));
+            colocarNovaPeca('a',8,new Rei(Cor.Preta,Tab));
         }
         public Peca executaMovimento(Posicao origem,Posicao destino) {
             Peca p = Tab.retirarPeca(origem);

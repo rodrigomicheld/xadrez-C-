@@ -43,6 +43,8 @@ namespace Xadrez_controle {
 
 
                 }
+                Console.Clear();
+                Tela.imprimirPartida(partidaXadrez);
             }
             catch (TabuleiroException e)
             {
