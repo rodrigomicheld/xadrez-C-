@@ -93,7 +93,7 @@ namespace xadrez {
             colocarNovaPeca('g',2,new Peao(Cor.Branca,Tab,this));
             colocarNovaPeca('h',2,new Peao(Cor.Branca,Tab,this));
 
-            colocarNovaPeca('a',8,new Torre(Cor.Preta,Tab));
+            //colocarNovaPeca('a',8,new Torre(Cor.Preta,Tab));
             colocarNovaPeca('b',8,new Cavalo(Cor.Preta,Tab));
             colocarNovaPeca('c',8,new Bispo(Cor.Preta,Tab));
             colocarNovaPeca('d',8,new Dama(Cor.Preta,Tab));
@@ -101,7 +101,7 @@ namespace xadrez {
             colocarNovaPeca('f',8,new Bispo(Cor.Preta,Tab));
             colocarNovaPeca('g',8,new Cavalo(Cor.Preta,Tab));
             colocarNovaPeca('h',8,new Torre(Cor.Preta,Tab));
-            colocarNovaPeca('a',7,new Peao(Cor.Preta,Tab,this));
+            colocarNovaPeca('a',7,new Peao(Cor.Branca,Tab,this));
             colocarNovaPeca('b',7,new Peao(Cor.Preta,Tab,this));
             colocarNovaPeca('c',7,new Peao(Cor.Preta,Tab,this));
             colocarNovaPeca('d',7,new Peao(Cor.Preta,Tab,this));
@@ -227,13 +227,55 @@ namespace xadrez {
             //jogada especial promocao
             if (p is Peao) {
                 if((p.Cor == Cor.Branca && destino.Linha==0) || (p.Cor == Cor.Preta && destino.Linha == 7)) {
+                    bool result = false;
+                    Console.WriteLine();
+                    Console.Write("Qual peça deseja substituir seu Peão 1-Dama 2-Cavalo 3-Bispo 4-Torre: ");
+                    int opcao = int.Parse(Console.ReadLine());
+
+                    while(!result) {
+                        if(opcao < 1) {
+                            result = false;
+                            Console.Write("Opção inválida! Informe uma das seguintes opções 1-Dama 2-Cavalo 3-Bispo 4-Torre: ");
+                            opcao = int.Parse(Console.ReadLine());
+                        }
+                        else if(opcao > 4) {
+                            result = false;
+                            Console.Write("Opção inválida! Informe uma das seguintes opções 1-Dama 2-Cavalo 3-Bispo 4-Torre: ");
+                            opcao = int.Parse(Console.ReadLine());
+                        }
+                        else
+                            result = true;
+
+                    }                    
                     p = Tab.retirarPeca(destino);
                     Pecas.Remove(p);
-                    Peca dama = new Dama(p.Cor,Tab);
-                    Tab.colocarPeca(dama,destino);
-                    Pecas.Add(dama);
+                    
+                    switch(opcao) {
+                        case 1:
+                            Peca dama = new Dama(p.Cor,Tab);
+                            Tab.colocarPeca(dama,destino);
+                            Pecas.Add(dama);
+                            break;
+                        case 2:
+                            Peca cavalo = new Cavalo(p.Cor,Tab);
+                            Tab.colocarPeca(cavalo,destino);
+                            Pecas.Add(cavalo);
+                            break;
+                        case 3:
+                            Peca bispo = new Bispo(p.Cor,Tab);
+                            Tab.colocarPeca(bispo,destino);
+                            Pecas.Add(bispo);
+                            break;
+                        case 4:
+                            Peca torre = new Torre(p.Cor,Tab);
+                            Tab.colocarPeca(torre,destino);
+                            Pecas.Add(torre);
+                            break;
+                    }
+                        
+
+                    }
                 }
-            }
 
             if(estaEmXeque(adversaria(JogadorAtual))) {
                 Xeque = true;
