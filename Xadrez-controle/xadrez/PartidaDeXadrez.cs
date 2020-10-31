@@ -93,7 +93,7 @@ namespace xadrez {
             colocarNovaPeca('g',2,new Peao(Cor.Branca,Tab,this));
             colocarNovaPeca('h',2,new Peao(Cor.Branca,Tab,this));
 
-            //colocarNovaPeca('a',8,new Torre(Cor.Preta,Tab));
+            colocarNovaPeca('a',8,new Torre(Cor.Preta,Tab));
             colocarNovaPeca('b',8,new Cavalo(Cor.Preta,Tab));
             colocarNovaPeca('c',8,new Bispo(Cor.Preta,Tab));
             colocarNovaPeca('d',8,new Dama(Cor.Preta,Tab));
@@ -101,7 +101,7 @@ namespace xadrez {
             colocarNovaPeca('f',8,new Bispo(Cor.Preta,Tab));
             colocarNovaPeca('g',8,new Cavalo(Cor.Preta,Tab));
             colocarNovaPeca('h',8,new Torre(Cor.Preta,Tab));
-            colocarNovaPeca('a',7,new Peao(Cor.Branca,Tab,this));
+            colocarNovaPeca('a',7,new Peao(Cor.Preta,Tab,this));
             colocarNovaPeca('b',7,new Peao(Cor.Preta,Tab,this));
             colocarNovaPeca('c',7,new Peao(Cor.Preta,Tab,this));
             colocarNovaPeca('d',7,new Peao(Cor.Preta,Tab,this));
